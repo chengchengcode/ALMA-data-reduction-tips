@@ -25,9 +25,13 @@ But for some reason I am not sure, when the two .ms file have identical field ID
 Here xx.ms is the data combined by concat, I average the channels of the ms file following the suggestion from uvmodelfit here: https://casa.nrao.edu/casadocs/casa-6.0/calibration-and-visibility-data/uv-manipulation/fitting-gaussians-to-visibilities 
 
 split('xx.ms','xxxx.ms', datacolumn='all',field='*',width='64')
+
 os.system('rm -rf xxx_cycle2.ms')
+
 os.system('rm -rf xxx_cycle3.ms')
+
 split(vis='xxxx.ms', observation='0',datacolumn='all', outputvis='xxx_cycle2.ms')
+
 split(vis='xxxx.ms', observation='1~5',datacolumn='all', outputvis='xxx_cycle3.ms')
 
 For cycle 2 data, there is a a script download here: https://help.almascience.org/index.php?/Knowledgebase/Article/View/352 
@@ -54,6 +58,7 @@ tb.close()
 Then the two ms files have only one field, and can be combined by concat:
 
 os.system('rm -rf S11_avg_cont.ms')
+
 concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
 
 Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is ok to use uvmodelfit.
