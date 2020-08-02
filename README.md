@@ -1,5 +1,3 @@
-# ALMA-uv-plane
-
 Here are some tips I learnt from ALMA helpdesk. I put them here so it is easier for me to check. ALMA helpdesk helps me quite a lot in understanding ALMA data reduction. I would like to thank Xing Lu, Kazuya Saigo for their patiently help in ALMA helpdesk.
 
 ## 1, How to substract one target from uv plane?
