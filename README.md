@@ -39,26 +39,22 @@ In general, cycle2 data use J2000 which should be unified to ICRS. So I download
 
 Next step is tricky: the two .ms file from cycle 2 and cycle 3 are *NOT splitted well*, maybe because the field name, ra, dec are the same, so we have to remove the other field by hand. This might be a bug of split.
 
-  msname = 'xxx_cycle2.ms'
+> msname = 'xxx_cycle2.ms'
 
-  tb.open(msname+'/FIELD', nomodify=False)
+> tb.open(msname+'/FIELD', nomodify=False)
 
-  tb.removerows(1) # The second row in the FIELD table is the ICRS field in the original field (from cycle 3) and we need to delete it.
+> tb.removerows(1) # The second row in the FIELD table is the ICRS field in the original field (from cycle 3) and we need to delete it.
 
-  tb.close() # Remember to close the table!
+> tb.close() # Remember to close the table!
 
-  msname = 'xxx_cycle3.ms' #
-
-  tb.open(msname+'/FIELD', nomodify=False)
-
-  tb.removerows(0) # The first row in the FIELD table is the J2000 field in the original field (from cycle 2) and we need to delete it.
-
-  tb.close()
+> msname = 'xxx_cycle3.ms' #
+> tb.open(msname+'/FIELD', nomodify=False)
+> tb.removerows(0) # The first row in the FIELD table is the J2000 field in the original field (from cycle 2) and we need to delete it.
+> tb.close()
 
 Then the two ms files have only one field, and can be combined by concat:
 
-  os.system('rm -rf S11_avg_cont.ms')
-
-  concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
+> os.system('rm -rf S11_avg_cont.ms')
+> concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
 
 Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is ok to use uvmodelfit.
