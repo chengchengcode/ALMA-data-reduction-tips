@@ -24,41 +24,41 @@ But for some reason I am not sure, when the two .ms file have identical field ID
 
 Here xx.ms is the data combined by concat, I average the channels of the ms file following the suggestion from uvmodelfit here: https://casa.nrao.edu/casadocs/casa-6.0/calibration-and-visibility-data/uv-manipulation/fitting-gaussians-to-visibilities 
 
-split('xx.ms','xxxx.ms', datacolumn='all',field='*',width='64')
+  split('xx.ms','xxxx.ms', datacolumn='all',field='*',width='64')
 
-os.system('rm -rf xxx_cycle2.ms')
+  os.system('rm -rf xxx_cycle2.ms')
 
-os.system('rm -rf xxx_cycle3.ms')
+  os.system('rm -rf xxx_cycle3.ms')
 
-split(vis='xxxx.ms', observation='0',datacolumn='all', outputvis='xxx_cycle2.ms')
+  split(vis='xxxx.ms', observation='0',datacolumn='all', outputvis='xxx_cycle2.ms')
 
-split(vis='xxxx.ms', observation='1~5',datacolumn='all', outputvis='xxx_cycle3.ms')
+  split(vis='xxxx.ms', observation='1~5',datacolumn='all', outputvis='xxx_cycle3.ms')
 
 For cycle 2 data, there is a a script download here: https://help.almascience.org/index.php?/Knowledgebase/Article/View/352 
 In general, cycle2 data use J2000 which should be unified to ICRS. So I download the relabelmstoicrs.py from this webpage, and replace the file name by the xx.ms, then run it in casa execfile('relabelmstoicrs.py')
 
 Next step is tricky: the two .ms file from cycle 2 and cycle 3 are *NOT splitted well*, maybe because the field name, ra, dec are the same, so we have to remove the other field by hand. This might be a bug of split.
 
-msname = 'xxx_cycle2.ms'
+  msname = 'xxx_cycle2.ms'
 
-tb.open(msname+'/FIELD', nomodify=False)
+  tb.open(msname+'/FIELD', nomodify=False)
 
-tb.removerows(1) # The second row in the FIELD table is the ICRS field in the original field (from cycle 3) and we need to delete it.
+  tb.removerows(1) # The second row in the FIELD table is the ICRS field in the original field (from cycle 3) and we need to delete it.
 
-tb.close() # Remember to close the table!
+  tb.close() # Remember to close the table!
 
-msname = 'xxx_cycle3.ms' #
+  msname = 'xxx_cycle3.ms' #
 
-tb.open(msname+'/FIELD', nomodify=False)
+  tb.open(msname+'/FIELD', nomodify=False)
 
-tb.removerows(0) # The first row in the FIELD table is the J2000 field in the original field (from cycle 2) and we need to delete it.
+  tb.removerows(0) # The first row in the FIELD table is the J2000 field in the original field (from cycle 2) and we need to delete it.
 
-tb.close()
+  tb.close()
 
 Then the two ms files have only one field, and can be combined by concat:
 
-os.system('rm -rf S11_avg_cont.ms')
+  os.system('rm -rf S11_avg_cont.ms')
 
-concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
+  concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
 
 Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is ok to use uvmodelfit.
