@@ -2,13 +2,13 @@ Here are some tips I learnt from ALMA helpdesk. I put them here so it is easier 
 
 ## 1, How to substract one target from uv plane?
 
-This question comes from the case when I need to draw the uv-amp plot of one target, but the ALMA FoV happen to have two targets, so the uv-amp plot based on the .ms file would include the flux from the two targets. So I need to substract the target I do not need. Here is the process:
+This question comes from the case when I need to draw the uv-amp plot of one target, but the ALMA FoV happen to have two targets, so the uv-amp plot based on the .ms file would include the flux from the two targets. Then I need to substract the target I do not need. Here is the process:
 
-1, tclean the xx.ms file and set savemodel = 'modelcolumn' in tclean, then there would be the two targets in the image and wait to be cleaned. Then I clean one target only, the model of this target will be saved in the xx.ms file.
+1, tclean the xx.ms file and set savemodel = 'modelcolumn' in tclean, then there would be the two targets in the image, waiting to be cleaned. Then I clean one target only, the model of this target will be saved in the xx.ms file.
 
-2, uvsub('xx.ms',  reverse=False) now the model of one target would be subtract from the xx.ms file. Now the xx.ms file have only one target. The other target has only residual.
+2, uvsub('xx.ms', reverse=False) now the model of one target would be subtract from the xx.ms file. Now the xx.ms file have only one target. The other target has only residual.
 
-To check this result, I clean xx.ms again, and found there is indeed only one target in the image.
+To check this result, I tclean xx.ms again, and found there is indeed only one target in the image.
 
 ## 2, How to combine the two .ms files together to get the .ms file with only one field ID, so that I can use uvmodelfit
 
