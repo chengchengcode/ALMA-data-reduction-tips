@@ -63,7 +63,7 @@ Then the two ms files have only one field, and can be combined by concat:
 
 Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is ok to use uvmodelfit.
 
-## How to get a circle beam?
+## 3, How to get a circle beam?
 
 The beam shape is the result of the uv coverage, and the beam is usually not a round circle.
 
