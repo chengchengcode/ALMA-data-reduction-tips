@@ -65,14 +65,18 @@ Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is
 
 ## How to get a circle beam?
 
-Basically, the beam shape is the result of the uv coverage, and the beam is usually not a round curcle. Sometimes one may would like to make a circle beam to have a better comparison with the optical images.
+The beam shape is the result of the uv coverage, and the beam is usually not a round circle.
 
-Then 
+Sometimes one may would like to make a circling beam to have a better comparison with the optical images.
 
+One method is to convolve the image with an elliptical gaussian kernel, orthogonal to the current beam shape. But this method is not recommended by the ALMA helpdesk. I am asking why, but no reply yet.
 
+Another method is uvtaper in tclean. Set
 
+        uvtaper = ['1.arcsec','1.arcsec','0deg'], 
+        restoringbeam =1.0arcsec
 
-
+in tclean, then the final image would have a circle beam.
 
 
 
