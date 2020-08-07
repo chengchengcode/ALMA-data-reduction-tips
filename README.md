@@ -62,3 +62,17 @@ Then the two ms files have only one field, and can be combined by concat:
     concat(vis=['xxx_cycle2.ms','xxx_cycle3.ms'], concatvis='xxx_cont.ms')
 
 Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is ok to use uvmodelfit.
+
+## How to get a circle beam?
+
+Basically, the beam shape is the result of the uv coverage, and the beam is usually not a round curcle. Sometimes one may would like to make a circle beam to have a better comparison with the optical images.
+
+Then 
+
+
+
+
+
+
+
+
