@@ -1,4 +1,46 @@
-Here are some tips I learnt from ALMA helpdesk. I put them here so it is easier for me to check. ALMA helpdesk helps me quite a lot in understanding ALMA data reduction. I would like to thank Xing Lu, Kazuya Saigo for their patiently help in ALMA helpdesk.
+Here are some tips I learnt from ALMA helpdesk and somewhere else. I put them here so it is easier for me to check. ALMA helpdesk helps me quite a lot in understanding ALMA data reduction. I would like to thank Edo Ibar, Xing Lu, Kazuya Saigo, Atsushi Miyazaki, Chentao Yang for their patiently help in ALMA helpdesk.
+
+## 0， About Jy/Beam
+
+The total flux within specified area for extended component are estimated from the flux densities each pixel as follows,
+
+Flux[Jy] = Σ I[Jy/beam] dΩ/Ωbeam
+
+where dΩ and Ωbeam are,
+
+Ωbeam = 2 pi σmaj*σmin = pi/(4 ln 2) * FWHMmaj*FWHMmin = 1.133 * FWHMmaj*FWHMmin # Beam Area
+
+(FWHMmaj,FWHMmin : major/minor axes (FWHM) of Gaussian beam)
+
+dΩ = (pixel size)^2 # Area of a pixel
+
+Thus the equation is changed,
+
+Flux[Jy] = Σ I[Jy/beam] * (4 ln 2)/pi * (pixel size)^2/(FWHMmaj*FWHMmin)
+
+dΩ/Ωbeam means the ratio between the pixel area and the beam area, and is equivalent with the pixel number within one beam. Then it means the conversion from Jy/beam to Jy/pixel. The total flux [Jy] is estimated to sum up the pixel value I[Jy/pixel] within specified area.
+
+*From JCMT webpage: https://www.eaobservatory.org/jcmt/faq/how-can-i-convert-from-mjybeam-to-mjy/
+
+A common question we receive here at the JCMT is regarding observations with SCUBA-2 and the conversion from mJy/beam to mJy. Before we begin, *it should be noted that for a real point source, a peak brightness value reported in units of mJy is the same as a peak brightness value reported in mJy/beam.*
+
+Now what happens if we have a map in mJy/beam and we want to obtain an integrated intensity value, a total flux value. We first sum up a number of pixels and now we want to get our units correct from mJy/beam to mJy…
+
+> Total Flux = flux summed over a number of pixels/(number of pixels in a beam)
+
+Then your units are:
+
+> [mJy*pixels/beam] / [pixels/beam] = [mJy].
+
+* From Edo:
+
+For the point source, the total flux equals to the peak value in the unit of Jy/Beam, because:
+
+S[Jy] = Peak[Jy/Beam] \times A_source / A_beam
+
+For an extended source, the source area is the area of photometry aperture. The beam size is A_beam = 1.13309 * BMAJ * BMIN
+
+in short, for one pixel, the flux density[Jy] = flux[Jy/Beam]/N_beam, where N_beam is the pixel number in one beam.
 
 ## 1, How to substract one target from uv plane?
 
