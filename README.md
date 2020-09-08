@@ -128,8 +128,8 @@ in tclean, then the final image would have a circle beam.
 
 >As for the restoringbeam parameter in tclean, according to CASA docs, the final CLEANed image is produced to be deconvolved from the clean model and the gaussian restoring beam defined by the restoringbeam parameter instead of the PSF calculated from native dirty beam. This is similar to spatial gaussian smoothing. However, this parameter may be not recommended. A CASA memo was released about the restoring beam and please check that also.
 
->> # https://casa.nrao.edu/casadocs/casa-6.0/memo-series/casa-memos/
->> # CASA Memo 10: Restoring/Common Beam and Flux Scaling in tclean
+>> https://casa.nrao.edu/casadocs/casa-6.0/memo-series/casa-memos/
+>> CASA Memo 10: Restoring/Common Beam and Flux Scaling in tclean
 
 > It's difficult issue to adjust synthesized beam, and thus it's recommended that the you carefully assess the results compared some ways.
 
