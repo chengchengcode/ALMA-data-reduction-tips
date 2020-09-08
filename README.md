@@ -109,7 +109,7 @@ Now there is only one field in xxx_cont.ms, with all the nRows there. Then it is
 
 The beam shape is the result of the uv coverage, and the beam is usually not a round circle.
 
-Sometimes one may would like to make a circling beam to have a better comparison with the optical images.
+Sometimes one may would like to make a circling beam to have a better comparison with the optical images. 
 
 One method is to convolve the image with an elliptical gaussian kernel, orthogonal to the current beam shape. But this method is not recommended by the ALMA helpdesk. I am asking why, but no reply yet.
 
@@ -120,5 +120,16 @@ Another method is uvtaper in tclean. Set
 
 in tclean, then the final image would have a circle beam.
 
+>The uvtaper controls just weight of visibilities in the uv-plane, and it is not ensured to obtain the synthesized beam as the same size as the gaussian shape defined in the uvtaper parameter. This weighting scheme with the uvtaper gives more weight to short baselines and degrades angular resolution, and thus may improve sensitivity for extended structure sampled by short baselines.
 
+>Although, in the case of data with ideal uv-coverage and very high SNR, the images for different weighting should be consistent, the images which is not exactly consistent may be produced in the actual data because sensitivity is affected by different weighting in each baseline length.
+
+>However, if flagging of a few antenna-baseline or uvtaper with a gaussian shape which is not widely different from the native synthesized beam, I think the difference of the produced images probably is not so serious.
+
+>As for the restoringbeam parameter in tclean, according to CASA docs, the final CLEANed image is produced to be deconvolved from the clean model and the gaussian restoring beam defined by the restoringbeam parameter instead of the PSF calculated from native dirty beam. This is similar to spatial gaussian smoothing. However, this parameter may be not recommended. A CASA memo was released about the restoring beam and please check that also.
+
+>> # https://casa.nrao.edu/casadocs/casa-6.0/memo-series/casa-memos/
+>> # CASA Memo 10: Restoring/Common Beam and Flux Scaling in tclean
+
+> It's difficult issue to adjust synthesized beam, and thus it's recommended that the you carefully assess the results compared some ways.
 
