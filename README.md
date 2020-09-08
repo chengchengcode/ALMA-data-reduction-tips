@@ -20,7 +20,7 @@ Flux[Jy] = Σ I[Jy/beam] * (4 ln 2)/pi * (pixel size)^2/(FWHMmaj*FWHMmin)
 
 dΩ/Ωbeam means the ratio between the pixel area and the beam area, and is equivalent with the pixel number within one beam. Then it means the conversion from Jy/beam to Jy/pixel. The total flux [Jy] is estimated to sum up the pixel value I[Jy/pixel] within specified area.
 
-*From JCMT webpage: https://www.eaobservatory.org/jcmt/faq/how-can-i-convert-from-mjybeam-to-mjy/
+* From JCMT webpage: https://www.eaobservatory.org/jcmt/faq/how-can-i-convert-from-mjybeam-to-mjy/
 
 A common question we receive here at the JCMT is regarding observations with SCUBA-2 and the conversion from mJy/beam to mJy. Before we begin, *it should be noted that for a real point source, a peak brightness value reported in units of mJy is the same as a peak brightness value reported in mJy/beam.*
 
