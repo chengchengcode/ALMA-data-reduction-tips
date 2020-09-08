@@ -1,4 +1,4 @@
-Here are some tips I learnt from ALMA helpdesk and somewhere else. I put them here so it is easier for me to check. ALMA helpdesk helps me quite a lot in understanding ALMA data reduction. I would like to thank Edo Ibar, Xing Lu, Kazuya Saigo, Atsushi Miyazaki, Chentao Yang for their patiently help in ALMA helpdesk.
+Here are some tips I learnt from ALMA helpdesk and somewhere else. I put them here so it is easier for me to check. ALMA helpdesk helps me quite a lot in understanding ALMA data reduction. I would like to thank Edo Ibar, Xing Lu, Kazuya Saigo, Atsushi Miyazaki, Chentao Yang for their patiently help.
 
 ## 0， About Jy/Beam
 
