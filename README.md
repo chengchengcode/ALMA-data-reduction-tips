@@ -137,16 +137,25 @@ in tclean, then the final image would have a circle beam.
 
 use tb.open and then combine them like this:
 
-msfilelist = ['pointing1.ms', 'pointing2.ms', ..., 'pointingN.ms']
-fieldlist = np.empty(shape=(0,))
-for ms in msfilelist:
-    print(ms)
-    tb.open(ms+'/FIELD/')
-    fieldlist = np.append(fieldlist,tb.getcol('NAME'))
-    print(fieldlist)
-    tb.close() 
+    msfilelist = ['pointing1.ms', 'pointing2.ms', ..., 'pointingN.ms']
 
-print(fieldlist.shape, np.unique(fieldlist).shape)
-field_id = np.unique(fieldlist)
+    fieldlist = np.empty(shape=(0,))
+
+    for ms in msfilelist:
+
+        print(ms)
+    
+        tb.open(ms+'/FIELD/')
+    
+        fieldlist = np.append(fieldlist,tb.getcol('NAME'))
+    
+        print(fieldlist)
+    
+        tb.close() 
+
+    print(fieldlist.shape, np.unique(fieldlist).shape)
+
+    field_id = np.unique(fieldlist)
+
 
 or if I have enough disk space, I can also combine the ms files together by concat, and msmd.open(msfile) it.
