@@ -111,14 +111,13 @@ The beam shape is the result of the uv coverage, and the beam is usually not a r
 
 Sometimes one may would like to make a circling beam to have a better comparison with the optical images. 
 
-One method is to convolve the image with an elliptical gaussian kernel, orthogonal to the current beam shape. But this method is not recommended by the ALMA helpdesk. I am asking why, but no reply yet.
+One method is to convolve the image with an elliptical gaussian kernel, orthogonal to the current beam shape. But this method is not recommended by the ALMA helpdesk. I am asking why, but no reply yet. A similar result would get by setting restoringbeam =1.0arcsec in tclean.
 
 Another method is uvtaper in tclean. Set
 
         uvtaper = ['1.arcsec','1.arcsec','0deg'], 
-        restoringbeam =1.0arcsec
 
-in tclean, then the final image would have a circle beam.
+in tclean, then the final image would have a rougly circle beam. The difference between restoringbeam and uvtaper is that restoringbeam will smooth the image after clean, while uvtaper will ``smooth'' the data before clean. So restoringbeam will convolve the beam into round shape. uvtaper will change the weight of the values in uv plane, and would not always produce round beam. If uvtaper and restoringbeam are set, the result would be more like the cleaned image and convolved into round beam.
 
 >The uvtaper controls just weight of visibilities in the uv-plane, and it is not ensured to obtain the synthesized beam as the same size as the gaussian shape defined in the uvtaper parameter. This weighting scheme with the uvtaper gives more weight to short baselines and degrades angular resolution, and thus may improve sensitivity for extended structure sampled by short baselines.
 
