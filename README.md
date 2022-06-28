@@ -158,3 +158,17 @@ use tb.open and then combine them like this:
 
 
 or if I have enough disk space, I can also combine the ms files together by concat, and msmd.open(msfile) it.
+
+
+## 5, How to read the SPW channel number from ms file?
+
+    tb.open(ms+'/DATA_DESCRIPTION/')
+    
+    spw_id = tb.getcol('SPECTRAL_WINDOW_ID')
+    
+    tb.open(ms+'/SPECTRAL_WINDOW/')
+    
+    num_chan = tb.getcol('NUM_CHAN')
+    
+    tb.close()
+
