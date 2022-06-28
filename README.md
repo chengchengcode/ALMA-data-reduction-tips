@@ -172,3 +172,46 @@ or if I have enough disk space, I can also combine the ms files together by conc
     
     tb.close()
 
+## 6, How to estimate the beam size of the MS file from CASA
+
+Patricio kindly offered me several methods to estimate the beam size. I found the EstimateSynthesizedBeam function works good for me to have a rough idea about the beam size.
+
+    Dear Cheng,
+
+    I can come up with two ways to estimate the synthesized beam before imaging.
+
+    1.- You can get the synthesized beam from the archive.
+
+    2.- You could install the analysisUtils from NRAO. These tools provide a single command to estimate the angular resolution from a visibility file. The instructions for installation are here.
+
+    https://casaguides.nrao.edu/index.php?title=Analysis_Utilities
+
+    The list of commands with the description are here (please note that not all of them have details publicly available.)
+
+    https://safe.nrao.edu/wiki/bin/view/Main/CasaExtensions
+
+    The command you need would be this one (which I think it is only an estimation because your resolution will depend on the parameters you use during cleaning):
+
+    https://safe.nrao.edu/wiki/bin/view/ALMA/EstimateSynthesizedBeam
+
+    In my experience, I always have to make a dirty image to fine tune the best pixel size, but the above ways can give you the first approximation.
+
+    Cheers,
+
+    Patricio
+
+## 7, How to obtain the calibrated ms file?
+
+1, run script_for_pi.py in the CASA with recommended version in the QA report, or readme.txt. For the CASA version above 4.2.2, it works good.
+
+2, EA, EU and US ARC can provide calibrated measurement sets obtained from script_for_pi.py .
+
+We can either submit a ticket to ALMA helpdesk: https://www2.nao.ac.jp/~eaarc/DATARED/calibrated_ms_request.html
+
+Or get the science ready data products from NRAO: https://data.nrao.edu/portal/#/ 
+
+The above services from EU, EA, NA only run the script_for_pi.py in the script folder. So if the data request some special treatments. 
+
+Example 1: if we run script_for_PI.py of 2015.1.00456.S then we will get only stripe pattern and no target in the image because in readme file: "some of the far-out antennas showed significant short term phase fluctuations", and in the imaging script: "some antennas are located on very remote pads, and were kept for calibration purposes." so we need handle care.
+
+Example 2: 2013.1.01358.S data is obtained in early cycles, and the calibration process in the last part of script_for_pi.py is commented out. And it is possible to add them back by runing the calibration process.
