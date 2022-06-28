@@ -171,6 +171,8 @@ or if I have enough disk space, I can also combine the ms files together by conc
     num_chan = tb.getcol('NUM_CHAN')
     
     tb.close()
+    
+tb.open can get the values of ms file: https://casa.nrao.edu/casadocs/casa-5.4.1/reference-material/measurement-set
 
 ## 6, How to estimate the beam size of the MS file from CASA
 
