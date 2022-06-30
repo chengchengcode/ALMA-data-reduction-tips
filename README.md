@@ -208,6 +208,10 @@ Patricio kindly offered me several methods to estimate the beam size. I found th
 
 1, run script_for_pi.py in the CASA with recommended version in the QA report, or readme.txt. For the CASA version above 4.2.2, it works good.
 
+Here is a website for different casa pipeline versions: https://almascience.eso.org/processing/science-pipeline 
+
+In my case, ome of them work in my linux, while some of them work in my mac. Some versions report error about pnglib or other lib problem in my linux. Almost every CASA version have different versions for el6, el7 of linux, or 10.11, 10.14 of mac, and make it take times to get the proper version for the pipeline. Sometimes the raw data downloaded is not complete, then the pipeline will report errpr. And sometimes, even when I use the right CASA version with the same release numbers, the pipeline still not work, no idea why. I have tried several CASA 4.2.2 versions, but none of them works to reduce the 2013.1.xxx data.
+
 2, EA, EU and US ARC can provide calibrated measurement sets obtained from script_for_pi.py .
 
 We can either submit a ticket to ALMA helpdesk through EA: https://www2.nao.ac.jp/~eaarc/DATARED/calibrated_ms_request.html
