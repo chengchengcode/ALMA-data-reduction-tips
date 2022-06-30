@@ -204,6 +204,8 @@ Patricio kindly offered me several methods to estimate the beam size. I found th
 
 ## 7, How to obtain the calibrated ms file?
 
+0，cycle 0 or early cycle data is calibrated and can be downloaded from ALMA archive: https://almascience.eso.org/aq/ or https://almascience.eso.org/alma-data/science-verification Some of the large programs provide the ms files: https://almascience.eso.org/alma-data/lp
+
 1, run script_for_pi.py in the CASA with recommended version in the QA report, or readme.txt. For the CASA version above 4.2.2, it works good.
 
 2, EA, EU and US ARC can provide calibrated measurement sets obtained from script_for_pi.py .
@@ -240,7 +242,7 @@ We can either submit a ticket to ALMA helpdesk through EA: https://www2.nao.ac.j
 
         2013.1.00010.S NGC253_a_04_TM1
 
-or EU: https://almascience-pre.nrao.edu/local-news/requesting-calibrated-measurement-sets-in-europe
+or EU: https://almascience.eso.org/local-news/requesting-calibrated-measurement-sets-in-europe
 
     file a normal Helpdesk ticket in the department "Archive and Data Retrieval (EU)" and 
     
@@ -250,12 +252,14 @@ or EU: https://almascience-pre.nrao.edu/local-news/requesting-calibrated-measure
     
     You can enumerate up to 10 MOUSs in your request.
 
-
+The above requested data will be online for about 28 days.
 
 Or get the science ready data products from NRAO: https://data.nrao.edu/portal/#/ 
 
-The above services from EU, EA, NA only run the script_for_pi.py in the script folder. So if the data request some special treatments. 
+The above services from EU, EA, NA only run the script_for_pi.py in the script folder. So if the data request some special treatments:
 
 Example 1: if we run script_for_PI.py of 2015.1.00456.S then we will get only stripe pattern and no target in the image because in readme file: "some of the far-out antennas showed significant short term phase fluctuations", and in the imaging script: "some antennas are located on very remote pads, and were kept for calibration purposes." so we need handle care.
 
 Example 2: 2013.1.01358.S data is obtained in early cycles, and the calibration process in the last part of script_for_pi.py is commented out. And it is possible to add them back by runing the calibration process.
+
+the delievered ms file may not quite work. So maybe it is necessary to read the qa report pdf or readme.txt files or for the requested ALMA ID.
