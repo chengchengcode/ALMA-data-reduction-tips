@@ -245,6 +245,11 @@ or EU: https://almascience-pre.nrao.edu/local-news/requesting-calibrated-measure
     file a normal Helpdesk ticket in the department "Archive and Data Retrieval (EU)" and 
     
     select the "Data request" sub-category.
+    
+    In the body of the text always specify the project code (e.g. 2015.1.09999.S, one per ticket) and  MOUS UID(s) (e.g. uid___A001_X340_X6 or uid://A001/X340/X6). 
+    
+    You can enumerate up to 10 MOUSs in your request.
+
 
 
 Or get the science ready data products from NRAO: https://data.nrao.edu/portal/#/ 
