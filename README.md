@@ -208,7 +208,44 @@ Patricio kindly offered me several methods to estimate the beam size. I found th
 
 2, EA, EU and US ARC can provide calibrated measurement sets obtained from script_for_pi.py .
 
-We can either submit a ticket to ALMA helpdesk: https://www2.nao.ac.jp/~eaarc/DATARED/calibrated_ms_request.html
+We can either submit a ticket to ALMA helpdesk through EA: https://www2.nao.ac.jp/~eaarc/DATARED/calibrated_ms_request.html
+
+    【How to request】
+
+    1. Log in to Helpdesk https://help.almascience.org/
+
+    2. Create a new ticket by clicking "Submit Helpdesk Ticket"
+
+    3. Choose "Archive and Data Retrieval (EA)" as Department
+
+    4. Put "Request of calibrated MS" as Subject
+
+    5. Choose "Data request (calibrated MS, stale data, calibrator data, or suggestions)" as Sub-category
+
+    6. Provide the following information in the box of "Message", then "Submit" the ticket
+
+        ***************
+    
+        Message
+
+        ***************
+
+        a. Your affiliation
+
+        [example: University of Tokyo] (so that we can check if the institute does not have a network issue with NAOJ etc.)
+
+        b. Project Code and SB name of the data
+
+        [example: please split Project Code and SB name with a space.
+
+        2013.1.00010.S NGC253_a_04_TM1
+
+or EU: https://almascience-pre.nrao.edu/local-news/requesting-calibrated-measurement-sets-in-europe
+
+    file a normal Helpdesk ticket in the department "Archive and Data Retrieval (EU)" and 
+    
+    select the "Data request" sub-category.
+
 
 Or get the science ready data products from NRAO: https://data.nrao.edu/portal/#/ 
 
